@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siam — The Single Era 💍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Hind Siliguri',sans-serif;background:#07070b;color:#fff;
+  overflow-x:hidden;
+  background-image:radial-gradient(circle at 20% 10%,rgba(255,180,70,.12),transparent 28%),
+  radial-gradient(circle at 80% 30%,rgba(140,80,255,.12),transparent 30%);
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;
+background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+background-size:45px 45px;mask-image:linear-gradient(to bottom,black,transparent)}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(92%,1000px);z-index:50;
+display:flex;justify-content:space-between;align-items:center;padding:13px 18px;border:1px solid rgba(255,255,255,.12);
+background:rgba(15,15,22,.65);backdrop-filter:blur(18px);border-radius:22px;box-shadow:0 15px 50px rgba(0,0,0,.35)}
+.logo{font-weight:800;letter-spacing:.5px}.logo span{color:#f5b84b}
+nav a{color:#ddd;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{min-height:100vh;display:grid;place-items:center;padding:120px 7% 70px;position:relative}
+.hero-grid{max-width:1200px;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border:1px solid rgba(255,194,91,.3);
+background:rgba(255,194,91,.08);border-radius:999px;color:#ffd47a;font-size:14px;margin-bottom:20px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(55px,8vw,105px);line-height:.9;letter-spacing:-3px}
+.gold{background:linear-gradient(120deg,#fff1b2,#e6a93c,#fff0aa);-webkit-background-clip:text;color:transparent}
+.hero p{color:#bdbdc8;font-size:18px;line-height:1.8;max-width:590px;margin:25px 0}
+.btn{display:inline-block;padding:13px 20px;border-radius:14px;text-decoration:none;font-weight:700;margin-right:8px}
+.btn-gold{background:linear-gradient(135deg,#ffd878,#b97817);color:#17110a;box-shadow:0 12px 35px rgba(221,159,49,.22)}
+.btn-dark{border:1px solid #343440;color:#fff;background:#111118}
+.scene{height:570px;position:relative;perspective:1000px}
+.orb{position:absolute;width:430px;height:430px;border-radius:50%;right:4%;top:8%;
+background:radial-gradient(circle at 30% 25%,#fff2bf,#c48a2d 18%,#38240b 52%,#0b0b0d 72%);
+box-shadow:0 0 90px rgba(226,169,65,.22);animation:float 5s ease-in-out infinite}
+.card3d{position:absolute;z-index:2;right:5%;top:15%;width:min(390px,90%);height:475px;padding:13px;border-radius:30px;
+background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.04));
+box-shadow:0 35px 80px rgba(0,0,0,.55);transform:rotateY(-10deg) rotateX(4deg);animation:cardfloat 6s ease-in-out infinite}
+.photo{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block;filter:saturate(1.05) contrast(1.04)}
+.photo-overlay{position:absolute;inset:13px;border-radius:23px;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 55%);pointer-events:none}
+.photo-text{position:absolute;left:35px;bottom:32px}.photo-text small{color:#ffd574}.photo-text h3{font-family:'Playfair Display';font-size:32px}
+.floating{position:absolute;padding:10px 14px;border-radius:14px;background:rgba(18,18,24,.8);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);z-index:4;box-shadow:0 15px 30px #0005}
+.f1{left:0;top:18%;animation:float 4s ease-in-out infinite}.f2{right:0;bottom:15%;animation:float 4.8s ease-in-out infinite}
+section{padding:95px 7%}.wrap{max-width:1150px;margin:auto}.eyebrow{color:#e9b64f;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.title{font-family:'Playfair Display';font-size:clamp(38px,5vw,64px);margin:10px 0 35px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:25px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,#14141b,#0c0c11);
+border-radius:24px;box-shadow:inset 0 1px rgba(255,255,255,.05),0 20px 50px #0004;transition:.35s}
+.card:hover{transform:translateY(-7px);border-color:#d7a13e88}
+.icon{font-size:28px;margin-bottom:12px}.card h3{margin-bottom:7px}.muted{color:#a9a9b5}
+.profile{display:grid;grid-template-columns:.85fr 1.15fr;gap:35px;align-items:center}
+.profile-photo{width:100%;height:590px;object-fit:cover;border-radius:30px;border:1px solid #ffffff1c;box-shadow:0 30px 70px #0007}
+.biodata{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{padding:17px;border-radius:17px;background:#101017;border:1px solid #ffffff0d}.item b{display:block;color:#e9b64f;font-size:13px;margin-bottom:3px}
+.quote{margin-top:18px;padding:22px;border-left:3px solid #dca33f;background:#111118;border-radius:0 18px 18px 0;color:#d9d9df;font-size:17px}
+.mission{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:center}
+.friend-photo{width:100%;max-height:600px;object-fit:cover;border-radius:28px;border:1px solid #ffffff18;box-shadow:0 30px 70px #0008}
+.timeline{display:grid;gap:14px}.step{display:flex;gap:16px;padding:18px;border:1px solid #ffffff0d;background:#111118;border-radius:18px}
+.num{width:42px;height:42px;min-width:42px;border-radius:50%;display:grid;place-items:center;background:#e0aa45;color:#17120a;font-weight:800}
+.match{padding:50px;border-radius:30px;text-align:center;background:linear-gradient(135deg,#17130d,#111118);border:1px solid #e0aa4544;position:relative;overflow:hidden}
+.match:after{content:"💍";position:absolute;font-size:230px;right:-20px;bottom:-80px;opacity:.06}
+.form{max-width:620px;margin:25px auto 0;display:grid;gap:12px;text-align:left}
+input,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #ffffff16;background:#09090d;color:#fff;font:inherit;outline:none}
+textarea{min-height:110px;resize:vertical}
+footer{text-align:center;padding:45px 20px;color:#777;border-top:1px solid #ffffff0d}
+@keyframes float{50%{transform:translateY(-15px)}}@keyframes cardfloat{50%{transform:rotateY(-5deg) rotateX(2deg) translateY(-13px)}}
+@media(max-width:850px){.hero-grid,.profile,.mission{grid-template-columns:1fr}.scene{height:540px}.cards{grid-template-columns:1fr}.biodata{grid-template-columns:1fr}nav a{display:none}.hero{padding-top:120px}.card3d{right:50%;transform:translateX(50%) rotateY(-6deg)}.orb{right:50%;transform:translateX(50%)}}
+</style>
+</head>
+<body>
+<nav><div class="logo">SIAM <span>💍</span></div><div><a href="#profile">Profile</a><a href="#mission">Rimon's Mission</a><a href="#match">Find Match</a></div></nav>
+
+<header class="hero">
+<div class="hero-grid">
+<div>
+<div class="badge">🚨 OPERATION: END THE SINGLE ERA</div>
+<h1>Meet <span class="gold">Siam.</span></h1>
+<p>২১ বছরের এক legendary bachelor—যার best friend Rimon এখন serious mission-এ: <b>Siam-এর জন্য একজন perfect life partner খুঁজে বের করা।</b> 😎💍</p>
+<a class="btn btn-gold" href="#match">💍 Match হতে চাই</a>
+<a class="btn btn-dark" href="#profile">Profile দেখুন</a>
+</div>
+<div class="scene">
+<div class="orb"></div>
+<div class="floating f1">🔥 Famous in Tangail</div>
+<div class="floating f2">🎯 Mission: Marriage</div>
+<div class="card3d">
+<img class="photo" src="siam.jpg" alt="Siam">
+<div class="photo-overlay"></div>
+<div class="photo-text"><small>THE BACHELOR</small><h3>Siam</h3></div>
+</div>
+</div>
+</div>
+</header>
+
+<section id="profile"><div class="wrap">
+<div class="eyebrow">01 / The Main Character</div><div class="title">Siam's Biodata</div>
+<div class="profile">
+<img class="profile-photo" src="siam.jpg" alt="Siam">
+<div>
+<div class="biodata">
+<div class="item"><b>নাম</b>Siam</div>
+<div class="item"><b>বয়স</b>২১ বছর</div>
+<div class="item"><b>গায়ের রং</b>ফর্সা</div>
+<div class="item"><b>Relationship Status</b>Single 😎</div>
+<div class="item"><b>Personality</b>মেয়ে ধরায় ওস্তাদ 😂</div>
+<div class="item"><b>Hobbies</b>মেয়ে ধরা 😎</div>
+<div class="item"><b>Favourite Food</b>গরম chicks 🔥</div>
+<div class="item"><b>Looking For</b>Hijabi girl 🧕</div>
+<div class="item"><b>Education</b>Smart & Street-Smart University</div>
+<div class="item"><b>Occupation</b>Future Husband — Currently Available</div>
+<div class="item"><b>Location</b>Tangail, Bangladesh</div>
+<div class="item"><b>Facebook</b><a class="contact-link" href="https://www.facebook.com/share/1DJngjjyVB/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Open Siam's Facebook ↗</a></div>
+<div class="item"><b>WhatsApp</b><a class="contact-link" href="https://wa.me/8801865749021" target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a></div>
+<div class="item"><b>Special Skill</b>Confidence + Unlimited Vibes</div>
+</div>
+<div class="quote">“Tangail-এর নাম করা খ...” 😎 — Siam-এর reputation নিয়ে কথা বলতে গেলে আলাদা website লাগবে।</div>
+</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="eyebrow">02 / Why Siam?</div><div class="title">Why should someone choose him?</div>
+<div class="cards">
+<div class="card"><div class="icon">😎</div><h3>Confidence</h3><p class="muted">নিজের style ও personality নিয়ে confident.</p></div>
+<div class="card"><div class="icon">😂</div><h3>Entertainment Package</h3><p class="muted">Boring relationship? Siam থাকলে সেই ভয় কম।</p></div>
+<div class="card"><div class="icon">💍</div><h3>Marriage Ready-ish</h3><p class="muted">Best friend Rimon বলছে—এবার seriously settle হওয়া দরকার!</p></div>
+</div>
+</div></section>
+
+<section id="mission"><div class="wrap">
+<div class="eyebrow">03 / The Best Friend</div><div class="title">Rimon's Mission 🚀</div>
+<div class="mission">
+<img class="friend-photo" src="rimon.jpg" alt="Rimon">
+<div>
+<p class="muted" style="font-size:18px;line-height:1.8;margin-bottom:20px"><b style="color:#fff">Rimon</b> হলো Siam-এর best friend এবং self-appointed Marriage Consultant.</p>
+<div class="timeline">
+<div class="step"><div class="num">01</div><div><b>Search</b><p class="muted">Siam-এর জন্য suitable hijabi girl খোঁজা।</p></div></div>
+<div class="step"><div class="num">02</div><div><b>Screening</b><p class="muted">Personality, compatibility আর mutual respect দেখা।</p></div></div>
+<div class="step"><div class="num">03</div><div><b>Mission Complete</b><p class="muted">Perfect match পাওয়া গেলে Siam-এর single era officially শেষ! 💍</p></div></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section id="match"><div class="wrap">
+<div class="match">
+<div class="eyebrow">04 / The Application</div>
+<div class="title">Are You The One? 💍</div>
+<p class="muted">Siam-এর জন্য match হতে চাইলে নিচের form পূরণ করুন। কোনো real contact information এখানে দেবেন না—এটি demo website form.</p>
+<form class="form" onsubmit="event.preventDefault(); alert('Application received! Rimon will review it 😎💍');">
+<input required placeholder="আপনার নাম">
+<input required type="number" min="18" placeholder="আপনার বয়স">
+<input placeholder="আপনার এলাকা">
+<textarea required placeholder="নিজের সম্পর্কে কিছু লিখুন..."></textarea>
+<button class="btn btn-gold" type="submit">🚀 Send Application</button>
+</form>
+</div>
+</div></section>
+
+<footer>Made with ❤️ by Rimon — <span style="color:#e9b64f">Operation: End Siam's Single Era</span> 💍</footer>
